@@ -14,6 +14,9 @@
     <string name="toggle_sms">Toggle SMS</string>
     <string name="default_service_file">sense_data.csv</string>
     <string name="default_sms_file">sms_data.csv</string>
-    <string name="sms_frequency">300</string>
+    <string name="default_sms_frequency">300</string>
+    <string name="data_file">Data File</string>
+    <string name="sms_data_file">SMS Data File</string>
+    <string name="sms_frequency">SMS Frequency</string>
 
 </resources>

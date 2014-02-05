@@ -54,35 +54,65 @@
         android:textOn="@string/service_running" />
 
     <EditText
-        android:id="@+id/sms_file"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/service_file"
-        android:layout_below="@+id/service_file"
-        android:ems="10"
-        android:hint="@string/default_service_file"
-        android:text="@string/default_sms_file" />
-
-    <EditText
         android:id="@+id/service_file"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/label_sms"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="19dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@+id/textView2"
         android:ems="10"
         android:hint="@string/default_service_file"
         android:text="@string/default_service_file" />
 
     <EditText
+        android:id="@+id/sms_file"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/service_file"
+        android:layout_marginLeft="28dp"
+        android:layout_toRightOf="@+id/textView2"
+        android:ems="10"
+        android:hint="@string/default_service_file"
+        android:text="@string/default_sms_file" />
+
+    <EditText
         android:id="@+id/sms_frequency"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/sms_file"
-        android:layout_alignRight="@+id/sms_file"
         android:layout_below="@+id/sms_file"
+        android:layout_marginLeft="28dp"
+        android:layout_toRightOf="@+id/textView2"
         android:ems="10"
         android:inputType="number"
+        android:text="@string/default_sms_frequency" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/service_file"
+        android:layout_alignBottom="@+id/service_file"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="47dp"
+        android:text="@string/data_file" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/sms_file"
+        android:layout_alignBottom="@+id/sms_file"
+        android:layout_alignRight="@+id/textView1"
+        android:text="@string/sms_data_file" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/sms_frequency"
+        android:layout_alignBottom="@+id/sms_frequency"
+        android:layout_alignRight="@+id/textView2"
         android:text="@string/sms_frequency" />
 
 </RelativeLayout>

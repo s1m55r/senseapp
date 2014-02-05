@@ -106,10 +106,24 @@ public class SenseListener extends BroadcastReceiver implements SensorEventListe
 				getHumidityData(event);
 				break;
 			case Sensor.TYPE_LINEAR_ACCELERATION:
+				getLinearAcceleration(event);
+				break;
+			case Sensor.TYPE_GAME_ROTATION_VECTOR:
+				getGameRotation(event);
+				break;
+			case Sensor.TYPE_GYROSCOPE_UNCALIBRATED:
+				getGyroUncalibrated(event);
+				break;
+			case Sensor.TYPE_MAGNETIC_FIELD_UNCALIBRATED:
+				getMagUncalibrated(event);
+				break;
+			case Sensor.TYPE_GEOMAGNETIC_ROTATION_VECTOR:
+				getGeomagRotation(event);
+				break;
 			case Sensor.TYPE_ORIENTATION:
 				break;
 			default:
-				Log.w(TAG, "Unknown sensor: " + event.sensor.getName());
+				Log.w(TAG, "Unknown sensor: " + event.sensor.getName() + " | " + event.sensor.getType());
 			}
 		}
 	}
@@ -200,6 +214,26 @@ public class SenseListener extends BroadcastReceiver implements SensorEventListe
 	
 	private void getHumidityData(SensorEvent event) {
 		mDataManager.postData(event.timestamp, Sensor.TYPE_RELATIVE_HUMIDITY, event.accuracy, event.values[0]);
+	}
+
+	private void getLinearAcceleration(SensorEvent event) {
+		mDataManager.postData(event.timestamp, Sensor.TYPE_LINEAR_ACCELERATION, event.accuracy, event.values);
+	}
+
+	private void getGameRotation(SensorEvent event) {
+		mDataManager.postData(event.timestamp, Sensor.TYPE_GAME_ROTATION_VECTOR, event.accuracy, event.values);
+	}
+
+	private void getGyroUncalibrated(SensorEvent event) {
+		mDataManager.postData(event.timestamp, Sensor.TYPE_GYROSCOPE_UNCALIBRATED, event.accuracy, event.values);
+	}
+
+	private void getMagUncalibrated(SensorEvent event) {
+		mDataManager.postData(event.timestamp, Sensor.TYPE_MAGNETIC_FIELD_UNCALIBRATED, event.accuracy, event.values);
+	}
+
+	private void getGeomagRotation(SensorEvent event) {
+		mDataManager.postData(event.timestamp, Sensor.TYPE_GEOMAGNETIC_ROTATION_VECTOR, event.accuracy, event.values);
 	}
 	
 	public void cleanup() {
