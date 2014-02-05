@@ -1,0 +1,88 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+
+    <EditText
+        android:id="@+id/label_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/toggle_sms"
+        android:layout_alignParentLeft="true"
+        android:ems="10"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:hint="@string/toggle_service"
+        android:text="@string/toggle_service" />
+
+    <EditText
+        android:id="@+id/label_sms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/toggle_sms"
+        android:layout_alignParentLeft="true"
+        android:ems="10"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:hint="@string/toggle_sms"
+        android:text="@string/toggle_sms" >
+
+        <requestFocus />
+    </EditText>
+
+    <ToggleButton
+        android:id="@+id/toggle_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/label_service"
+        android:onClick="onServiceStateToggled"
+        android:text="@string/toggle_service"
+        android:textOff="@string/service_stopped"
+        android:textOn="@string/service_running" />
+
+    <ToggleButton
+        android:id="@+id/toggle_sms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/toggle_service"
+        android:layout_below="@+id/toggle_service"
+        android:onClick="onSMSStateToggled"
+        android:text="@string/toggle_sms"
+        android:textOff="@string/service_stopped"
+        android:textOn="@string/service_running" />
+
+    <EditText
+        android:id="@+id/sms_file"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/service_file"
+        android:layout_below="@+id/service_file"
+        android:ems="10"
+        android:hint="@string/default_service_file"
+        android:text="@string/default_sms_file" />
+
+    <EditText
+        android:id="@+id/service_file"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/label_sms"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp"
+        android:ems="10"
+        android:hint="@string/default_service_file"
+        android:text="@string/default_service_file" />
+
+    <EditText
+        android:id="@+id/sms_frequency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/sms_file"
+        android:layout_alignRight="@+id/sms_file"
+        android:layout_below="@+id/sms_file"
+        android:ems="10"
+        android:inputType="number"
+        android:text="@string/sms_frequency" />
+
+</RelativeLayout>
