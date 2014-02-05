@@ -58,7 +58,7 @@ public class MainActivity extends Activity implements ServiceStateListener {
 		
 		String defaultServiceFile = getString(R.string.default_service_file);
 		String defaultSmsFile = getString(R.string.default_sms_file);
-		String defaultSmsFrequency = getString(R.string.sms_frequency);
+		String defaultSmsFrequency = getString(R.string.default_sms_frequency);
 		
 		serviceText.setText(preference.getString(SENSOR_FILE_PARAM, defaultServiceFile));
 		smsText.setText(preference.getString(SMS_FILE_PARAM, defaultSmsFile));

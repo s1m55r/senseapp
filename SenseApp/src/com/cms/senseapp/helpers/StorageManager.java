@@ -19,7 +19,7 @@ public class StorageManager {
 	private static final String TAG = StorageManager.class.getName();
 	
 	private static final String SUCCESS_STRING = "0";
-	private static final String FULL_STRING = "1";
+	private static final String FAIL_STRING = "1";
 	
 	private static final byte STORAGE_STATUS_UNAVAILABLE = 1;
 	private static final byte STORAGE_STATUS_FULL = 2;
@@ -104,6 +104,15 @@ public class StorageManager {
 		String mediaState = Environment.getExternalStorageState();
 		if (Environment.MEDIA_MOUNTED.equals(mediaState)) {
 			dataFile = new File(fileDir, fileName);
+			Log.i(TAG, "Trying file " + dataFile.getAbsolutePath());
+			int dupFileCtr = 1;
+			while (dataFile.exists()) {
+				String subFileName = fileName.substring(0, fileName.lastIndexOf('.')) + '_' + dupFileCtr
+						+ fileName.substring(fileName.lastIndexOf('.'));
+				dataFile = new File(fileDir, subFileName);
+				dupFileCtr++;
+				Log.i(TAG, "Trying file " + dataFile.getAbsolutePath());
+			}
 			if (dataFile != null) {
 				try {
 					out = new FileOutputStream(dataFile, true);
@@ -166,7 +175,7 @@ public class StorageManager {
 					if (stored < MAX_STORAGE) {
 						try {
 							out.write(data);
-							Log.i(TAG, "Wrote " + data.length + " bytes to " + mFileName);
+							Log.i(TAG, "Wrote " + data.length + " bytes to " + dataFile.getName());
 							return SUCCESS_STRING;
 						} catch (IOException e) {
 							Log.w(TAG, "Failure writing to file: " + e + "!");
@@ -195,7 +204,7 @@ public class StorageManager {
 						}
 					}
 					else {
-						return FULL_STRING;
+						return FAIL_STRING;
 					}
 				}
 //				Log.d(TAG, "Write finished at " + System.currentTimeMillis());
@@ -226,7 +235,7 @@ public class StorageManager {
 			}
 			else {
 //				Log.i(TAG, "Got result " + result);
-				if (FULL_STRING.equals(result)) {
+				if (FAIL_STRING.equals(result)) {
 					notifyStorageEventListeners(STORAGE_STATUS_FULL);
 				}
 			}

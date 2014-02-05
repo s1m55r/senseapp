@@ -126,6 +126,7 @@ public class SenseRunner extends Thread implements DataEventListener {
 		cleanup();
 		showNotification(NOTIFY_FULL_ID, "Media full!", 
 				"External storage capacity has been reached.");
+		mSenseService.stopSelf();
 	}
 
 	public void mediaUnavailable() {

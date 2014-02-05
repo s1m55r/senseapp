@@ -73,7 +73,7 @@
         android:layout_marginLeft="28dp"
         android:layout_toRightOf="@+id/textView2"
         android:ems="10"
-        android:hint="@string/default_service_file"
+        android:hint="@string/default_sms_file"
         android:text="@string/default_sms_file" />
 
     <EditText
@@ -95,7 +95,8 @@
         android:layout_alignBottom="@+id/service_file"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="47dp"
-        android:text="@string/data_file" />
+        android:text="@string/data_file"
+        android:labelFor="@+id/service_file" />
 
     <TextView
         android:id="@+id/textView2"
@@ -104,7 +105,8 @@
         android:layout_alignBaseline="@+id/sms_file"
         android:layout_alignBottom="@+id/sms_file"
         android:layout_alignRight="@+id/textView1"
-        android:text="@string/sms_data_file" />
+        android:text="@string/sms_data_file"
+        android:labelFor="@+id/sms_file" />
 
     <TextView
         android:id="@+id/textView3"
@@ -113,6 +115,7 @@
         android:layout_alignBaseline="@+id/sms_frequency"
         android:layout_alignBottom="@+id/sms_frequency"
         android:layout_alignRight="@+id/textView2"
-        android:text="@string/sms_frequency" />
+        android:text="@string/sms_frequency"
+        android:labelFor="@+id/sms_frequency" />
 
 </RelativeLayout>
